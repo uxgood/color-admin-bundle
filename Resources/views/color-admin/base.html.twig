@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="{{ lang ?? 'en' }}" class="ie8" {{ (htmlattr ?? '')|raw }}> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="{{ lang ?? 'en'}}" {{ (htmlattr ?? '')|raw }}>
+<!--<![endif]-->
+<head>
+    <meta charset="{{ charset ?? 'utf-8' }}" />
+    <title>{{ title ?? 'Hello Word!' }}</title>
+{% block metadata %}{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</head>
+<body {{ (bodyattr ?? '')|raw }}>
+{% block body %}Hello Word!{% endblock %}
+{% block stylesheets2 %}{% endblock %}
+{% block javascripts2 %}{% endblock %}
+</body>
+</html>
