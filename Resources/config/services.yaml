@@ -22,9 +22,9 @@ services:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
 
-    #UxGood\Bundle\ColorAdminBundle\Repository\:
-    #    resource: '../../Repository'
-    #    tags: ['doctrine.repository_service']
+    UxGood\Bundle\ColorAdminBundle\Repository\:
+        resource: '../../Repository'
+        tags: ['doctrine.repository_service']
 
     #UxGood\Bundle\ColorAdminBundle\DataFixtures\:
     #    resource: '../../DataFixtures'

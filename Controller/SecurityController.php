@@ -24,7 +24,7 @@ class SecurityController extends Controller
 	{
 		$helper = $this->get('security.authentication_utils');
 		if ($this->getUser()) {
-			return $this->redirectToRoute("uxgood_admin_coloradmin_index");
+			return $this->redirectToRoute("uxgood_coloradmin_coloradmin_index");
 		}
 		return $this->render('@UxGoodColorAdmin/security/login_v2.html.twig', array(
 			// last username entered by the user (if any)

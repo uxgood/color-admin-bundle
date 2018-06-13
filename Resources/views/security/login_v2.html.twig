@@ -69,7 +69,7 @@
                         </label>
                     </div>
                     <div class="login-buttons">
-                        <input type="hidden" name="_target_path" value="{{ target_path?? path('uxgood_coloradmin_coloradmin_index') }}" />
+                        <input type="hidden" name="_target_path" value="{{ target_path?? 'uxgood_coloradmin_coloradmin_index' }}" />
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
                         <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
                     </div>

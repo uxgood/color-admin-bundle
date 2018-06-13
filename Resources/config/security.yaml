@@ -1,0 +1,70 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: ~ }
+        entity_provider:
+            entity:
+                class: UxGood\Bundle\ColorAdminBundle\Entity\User
+                #property: username
+
+    encoders:
+        UxGood\Bundle\ColorAdminBundle\Entity\User:
+            algorithm: bcrypt
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        admin:
+            anonymous: ~
+            pattern: ^/color-admin
+            provider: entity_provider
+            access_denied_url: ~
+            access_denied_handler: ~ #UxGood\Bundle\ColorAdminBundle\Security\AccessDeniedHandler
+
+            form_login:
+                login_path: uxgood_coloradmin_security_login
+                check_path: uxgood_coloradmin_security_logincheck
+                csrf_token_generator: security.csrf.token_manager
+                #success_handler: UxGood\Bundle\ColorAdminBundle\Security\LoginSuccessHandler
+                #failure_handler: UxGood\Bundle\ColorAdminBundle\Security\LoginFailureHandler
+                failure_path: ~
+
+            logout:
+                path: uxgood_coloradmin_security_logout
+                target: uxgood_coloradmin_security_login
+                #success_handler: UxGood\Bundle\ColorAdminBundle\Security\LogoutSuccessHandler
+                #handlers: [ UxGood\Bundle\ColorAdminBundle\Security\LogoutHandler ]
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 86400
+                path: uxgood_coloradmin_coloradmin_index
+
+            switch_user:
+                provider: ~
+                parameter: _switch_user
+                role: ROLE_ALLOWED_TO_SWITCH
+
+        main:
+            anonymous: true
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    #access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/color-admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/color-admin, roles: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_ADMIN:
