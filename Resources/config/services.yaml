@@ -30,6 +30,9 @@ services:
     #    resource: '../../DataFixtures'
     #    tags: ['doctrine.fixture.orm']
 
+    UxGood\Bundle\ColorAdminBundle\EventListener\:
+        resource: '../../EventListener'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
