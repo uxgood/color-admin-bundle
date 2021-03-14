@@ -7,8 +7,7 @@
 namespace UxGood\Bundle\ColorAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -17,8 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SecurityController extends Controller
 {
 	/**
-	 * @Route("/login")
-	 * @Method("GET")
+	 * @Route("/login", methods={"GET"})
 	 */
 	public function loginAction(Request $request)
 	{
