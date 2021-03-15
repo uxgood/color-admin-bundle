@@ -6,14 +6,14 @@
 
 namespace UxGood\Bundle\ColorAdminBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Controller used to manage the application security.
  */
-class SecurityController extends Controller
+class SecurityController extends AbstractController
 {
 	/**
 	 * @Route("/login", methods={"GET"})
